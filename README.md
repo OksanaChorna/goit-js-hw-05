@@ -1,6 +1,8 @@
 # goit-js-hw-05
 
-task 5_3 Перший варіант
+## task 5_3 Перший варіант
+
+```
 class Storage {
 constructor(items) {
 this.items = items;
@@ -37,3 +39,38 @@ console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "
 
 storage.removeItem("Пролонгер");
 console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
+```
+
+## task 5_4
+
+```
+
+class StringBuilder {
+constructor(value) {
+this._value = value;
+}
+get value() {
+return this._value;
+}
+append(str) {
+this._value += str;
+}
+prepend(str) {
+this._value = str + this._value;
+}
+pad(str) {
+this._value = str + this._value + str;
+}
+}
+const builder = new StringBuilder(".");
+
+builder.append("^");
+console.log(builder.value); // '.^'
+
+builder.prepend("^");
+console.log(builder.value); // '^.^'
+
+builder.pad("=");
+console.log(builder.value); // '=^.^='
+
+```

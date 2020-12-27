@@ -4,7 +4,11 @@ class Car {
    * который принимает объект-машину как параметр и выводит
    * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
    */
-
+  static getSpecs(car) {
+    console.log(
+      `maxSpeed: ${car._maxSpeed}, speed: ${car._speed}, isOn: ${car._isOn}, distance: ${car._distance}, price: ${car._price}`
+    );
+  }
   /*
    * Конструктор получает объект настроек.
    *
@@ -15,13 +19,24 @@ class Car {
    *  isOn - заведен ли автомобиль, значения true или false. Изначально false
    *  distance - общий киллометраж, изначально 0
    */
-  constructor() {}
+  constructor(setting) {
+    this._speed = 0;
+    this._price = setting.price;
+    this._maxSpeed = setting.maxSpeed;
+    this._isOn = false;
+    this._distance = 0;
+  }
 
   /*
    * Добавь геттер и сеттер для свойства price,
    * который будет работать с свойством цены автомобиля.
    */
-
+  get price() {
+    return this._price;
+  }
+  set price(value) {
+    this._price = value;
+  }
   /*
    * Добавь код для того чтобы завести автомобиль
    * Записывает в свойство isOn значение true
@@ -64,13 +79,13 @@ mustang.drive(2);
 Car.getSpecs(mustang);
 // maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
 
-mustang.decelerate(20);
-mustang.drive(1);
-mustang.turnOff();
+// mustang.decelerate(20);
+// mustang.drive(1);
+// mustang.turnOff();
 
-Car.getSpecs(mustang);
-// maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
+// Car.getSpecs(mustang);
+// // maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
 
-console.log(mustang.price); // 2000
+// console.log(mustang.price); // 2000
 mustang.price = 4000;
 console.log(mustang.price); // 4000
